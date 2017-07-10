@@ -1,0 +1,26 @@
+<h1>{{user_component}}</h1>
+<p>{{name}} : {{age}} age</p>
+<p>
+  user works!
+</p>
+
+<md-card class="card">
+  <md-card-title class="green">Address</md-card-title>
+  <div class="collection">
+    <md-list>
+      <a href="#" class="btn">Button Material</a>
+      <md-list-item class="red"> Street: {{address.street}}</md-list-item>
+      <md-list-item> City: {{address.city}}</md-list-item>
+      <md-list-item> State: {{address.state}}</md-list-item>
+    </md-list>
+  </div>
+</md-card>
+
+<form materialize class="col s12">
+  <div class="row">
+    <div class="input-field col s6">
+      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+      <label for="first_name">First Name</label>
+    </div>
+  </div>
+</form>
