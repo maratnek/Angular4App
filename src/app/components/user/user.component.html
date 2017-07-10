@@ -1,26 +1,39 @@
-<h1>{{user_component}}</h1>
-<p>{{name}} : {{age}} age</p>
-<p>
-  user works!
-</p>
+<h1>{{name}}</h1>
+<div class="container">
+  <ul>
+    <li>Age: {{age}}</li>
+    <li>Email: {{email}}</li>
+    <li>{{address.street}} {{address.city}} {{address.state}}</li>
+  </ul>
 
-<md-card class="card">
-  <md-card-title class="green">Address</md-card-title>
-  <div class="collection">
-    <md-list>
-      <a href="#" class="btn">Button Material</a>
-      <md-list-item class="red"> Street: {{address.street}}</md-list-item>
-      <md-list-item> City: {{address.city}}</md-list-item>
-      <md-list-item> State: {{address.state}}</md-list-item>
-    </md-list>
-  </div>
-</md-card>
-
-<form materialize class="col s12">
-  <div class="row">
-    <div class="input-field col s6">
-      <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-      <label for="first_name">First Name</label>
+  <button class="btn" (click)="onClick()">Add</button>
+  <h1>Edit User</h1>
+  <form >
+    <div class="input-field">
+      <label for="name">Name:   </label>
+      <input type="text">
     </div>
-  </div>
-</form>
+    <div class="input-field">
+      <label for="name">Age:   </label>
+      <input type="number">
+    </div>
+    <div class="input-field">
+      <label for="name">Email:   </label>
+      <input type="email">
+    </div>
+    <div></div>
+  </form>
+
+  <h2>Hobbies</h2>
+  <form (submit)="addHobby(hobby.value)">
+    <div>
+      <label for="hobby">Hobby:</label>
+      <input type="text" #hobby>
+    </div>
+  </form>
+  <ul>
+    <li *ngFor='let hobby of hobbies; let i = index;'>{{i + 1}}: {{hobby}}
+      <button class="btn" (click)="deleteHobby(hobby)">Delete</button>
+    </li>
+  </ul>
+</div>

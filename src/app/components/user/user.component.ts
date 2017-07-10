@@ -10,6 +10,8 @@ export class UserComponent implements OnInit {
   age:number;
   email:string;
   address:Address;
+  hobbies:string[];
+  hello: any;
 
   user_component = "Hello Design ZM";
   constructor() {
@@ -24,6 +26,24 @@ export class UserComponent implements OnInit {
       street:'50 Main st',
       city: 'Boston',
       state: 'MA'
+    };
+    this.hobbies = ['Write code', 'Watch movies', 'Listen to music'];
+    this.hello = 'hello';
+  }
+
+  onClick(){
+    this.name='Brad Travercy';
+    this.hobbies.push('New Hobby');
+  }
+  addHobby(hobby){
+    console.log(hobby);
+    this.hobbies.unshift(hobby);
+    return false;
+  }
+  deleteHobby(hobby){
+    for (let i = 0; i < this.hobbies.length; i++) {
+      if(hobby == this.hobbies[i])
+        this.hobbies.splice(i,1);
     }
   }
 
