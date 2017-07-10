@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
-import {MaterialModule} from '@angular/material'
+import { MaterialModule } from '@angular/material'
 import { MaterializeModule } from 'angular2-materialize';
+import {DataService} from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,13 @@ import { MaterializeModule } from 'angular2-materialize';
     UserComponent
   ],
   imports: [
-    BrowserModule, MaterialModule, MaterializeModule
+    BrowserModule,
+    MaterialModule,
+    MaterializeModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

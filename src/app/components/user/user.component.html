@@ -1,27 +1,40 @@
-<h1>{{name}}</h1>
 <div class="container">
-  <ul>
+  <div class="card">
+    <div class="card-title">{{name}}</div>
+  <ul >
     <li>Age: {{age}}</li>
     <li>Email: {{email}}</li>
     <li>{{address.street}} {{address.city}} {{address.state}}</li>
   </ul>
+</div>
 
   <button class="btn" (click)="onClick()">Add</button>
   <h1>Edit User</h1>
   <form >
     <div class="input-field">
       <label for="name">Name:   </label>
-      <input type="text">
+      <input type="text" [(ngModel)]="name" name="name">
     </div>
     <div class="input-field">
-      <label for="name">Age:   </label>
-      <input type="number">
+      <label for="age">Age:   </label>
+      <input type="number" [(ngModel)]="age" name="age">
     </div>
     <div class="input-field">
-      <label for="name">Email:   </label>
-      <input type="email">
+      <label for="email">Email:   </label>
+      <input type="email" [(ngModel)]="email" name="email">
     </div>
-    <div></div>
+    <div class="input-field">
+      <label for="street">Street:   </label>
+      <input type="text" [(ngModel)]="street" name="street">
+    </div>
+    <div class="input-field">
+      <label for="city">City:   </label>
+      <input type="text" [(ngModel)]="city" name="city">
+    </div>
+    <div class="input-field">
+      <label for="state">State:   </label>
+      <input type="text" [(ngModel)]="state" name="state">
+    </div>
   </form>
 
   <h2>Hobbies</h2>
