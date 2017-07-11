@@ -8,34 +8,38 @@
   </ul>
 </div>
 
-  <button class="btn" (click)="onClick()">Add</button>
+  <button class="btn" (click)="onClick()">Add Hobby</button>
+  <button class="btn" (click)="toggleEdit()">Edit User</button>
+
   <h1>Edit User</h1>
-  <form >
-    <div class="input-field">
-      <label for="name">Name:   </label>
-      <input type="text" [(ngModel)]="name" name="name">
-    </div>
-    <div class="input-field">
-      <label for="age">Age:   </label>
-      <input type="number" [(ngModel)]="age" name="age">
-    </div>
-    <div class="input-field">
-      <label for="email">Email:   </label>
-      <input type="email" [(ngModel)]="email" name="email">
-    </div>
-    <div class="input-field">
-      <label for="street">Street:   </label>
-      <input type="text" [(ngModel)]="street" name="street">
-    </div>
-    <div class="input-field">
-      <label for="city">City:   </label>
-      <input type="text" [(ngModel)]="city" name="city">
-    </div>
-    <div class="input-field">
-      <label for="state">State:   </label>
-      <input type="text" [(ngModel)]="state" name="state">
-    </div>
-  </form>
+  <div *ngIf=isEdit>
+    <form >
+      <div class="input-field">
+        <label for="name">Name:   </label>
+        <input type="text" [(ngModel)]="name" name="name">
+      </div>
+      <div class="input-field">
+        <label for="age">Age:   </label>
+        <input type="number" [(ngModel)]="age" name="age">
+      </div>
+      <div class="input-field">
+        <label for="email">Email:   </label>
+        <input type="email" [(ngModel)]="email" name="email">
+      </div>
+      <div class="input-field">
+        <label for="street">Street:   </label>
+        <input type="text" [(ngModel)]="street" name="street">
+      </div>
+      <div class="input-field">
+        <label for="city">City:   </label>
+        <input type="text" [(ngModel)]="city" name="city">
+      </div>
+      <div class="input-field">
+        <label for="state">State:   </label>
+        <input type="text" [(ngModel)]="state" name="state">
+      </div>
+    </form>
+  </div>
 
   <h2>Hobbies</h2>
   <form (submit)="addHobby(hobby.value)">
@@ -44,9 +48,27 @@
       <input type="text" #hobby>
     </div>
   </form>
-  <ul>
-    <li *ngFor='let hobby of hobbies; let i = index;'>{{i + 1}}: {{hobby}}
-      <button class="btn" (click)="deleteHobby(hobby)">Delete</button>
-    </li>
-  </ul>
+  <md-list>
+    <md-list-item *ngFor='let hobby of hobbies; let i = index;'>
+      <p md-line class="left-align">
+        {{i + 1}}: {{hobby}}
+      </p>
+      <div class="right">
+        <a md-button (click)="deleteHobby(hobby)"><md-icon>delete</md-icon></a>
+      </div>
+    </md-list-item>
+  </md-list>
+  <br>
+  <h2>Posts</h2>
+  <div class="row">
+    <ng-container *ngFor="let post of posts; let i = index;">
+      <div class="col s12 m6 l4" >
+        <md-card> 
+          <blockquote style="text-transform:uppercase">  {{post.title}}</blockquote>
+          <md-card-content class="">{{post.body}}</md-card-content>
+        </md-card>
+      </div>
+      <!-- <div *ngIf="(i+1)%2 == 0" class="clearfix"></div> -->
+    </ng-container>
+  </div>
 </div>
